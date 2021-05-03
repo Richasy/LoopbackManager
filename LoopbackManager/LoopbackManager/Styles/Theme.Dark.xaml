@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LoopbackManager.Styles">
+    <SolidColorBrush x:Key="PrimaryBrush" Color="#7564FC" />
+    <SolidColorBrush x:Key="DarkPrimaryBrush" Color="#573DA6" />
+    <SolidColorBrush x:Key="LightPrimaryBrush" Color="#BB6BD9" />
+    <SolidColorBrush x:Key="SecondaryBrush" Color="#389AFD" />
+    <SolidColorBrush x:Key="DarkSecondaryBrush" Color="#2F80ED" />
+    <SolidColorBrush x:Key="LightSecondaryBrush" Color="#56CCF2" />
+
+    <SolidColorBrush x:Key="PageBackground" Color="#15181f" />
+    <SolidColorBrush x:Key="CardBackground" Color="#2d2c3c" />
+    
+    <SolidColorBrush x:Key="GreenBrush" Color="#27AE60" />
+    <SolidColorBrush x:Key="LightGreenBrush" Color="#6FCF97" />
+    <SolidColorBrush x:Key="DarkGreenBrush" Color="#219653" />
+
+    <SolidColorBrush x:Key="LineBrush" Color="#454B6F" />
+    <SolidColorBrush x:Key="TipBrush" Color="#7979A9" />
+    <SolidColorBrush x:Key="NormalBrush" Color="#E0E0E0" />
+    <SolidColorBrush x:Key="ImportantBrush" Color="#F2F2F2" />
+</ResourceDictionary>

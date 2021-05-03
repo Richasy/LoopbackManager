@@ -1,0 +1,49 @@
+﻿<Window
+    x:Class="LoopbackManager.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LoopbackManager"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:models="using:LoopbackManager.Models" xmlns:controls="using:LoopbackManager.Controls"
+    mc:Ignorable="d">
+    
+    <Grid RowSpacing="12" Padding="20,12" Background="{ThemeResource PageBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid ColumnSpacing="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox HorizontalAlignment="Stretch" PlaceholderText="Filter the apps"
+                     x:Name="KeywordBox" Style="{StaticResource CustomTextBoxStyle}"
+                     Padding="12"
+                     VerticalAlignment="Center" TextChanged="OnKeywordChanged"/>
+            <Button Grid.Column="1" Content="Save"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Padding="12"
+                    MinWidth="150"
+                    IsEnabled="{x:Bind ViewModel.HasUnsavedData,Mode=OneWay}"
+                    x:Name="SaveButton" Click="OnSaveButtonClick"/>
+            <Button Grid.Column="2" Content="Refresh"
+                    Padding="12" Style="{StaticResource SecondaryButtonStyle}"
+                    x:Name="RefreshButton" Click="OnRefreshButtonClick"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ListView ItemsSource="{x:Bind ViewModel.DisplayAppCollection,Mode=OneWay}"
+                      SelectionMode="None"
+                      Loaded="OnListViewLoaded"
+                      ItemContainerStyle="{StaticResource TransparentListViewItemStyle}"
+                      >
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:AppContainer">
+                        <controls:AppItem Data="{Binding}" StateChanged="OnItemStatusChanged"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+</Window>
