@@ -9,7 +9,7 @@
   <Identity
     Name="373cd825-c3bc-4a57-8f9e-89c9bbb4642c"
     Publisher="CN=9EFA2047-A580-400B-A5B2-0C7ABB0DB5C0"
-    Version="1.0.0.0" />
+    Version="0.0.1.0" />
 
   <Properties>
     <DisplayName>Loopback Manager</DisplayName>
