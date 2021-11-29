@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "LoopbackManager (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "LoopbackManager (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
