@@ -10,6 +10,7 @@
 		<UseWinUI>true</UseWinUI>
 	</PropertyGroup>
 	<ItemGroup>
+		<None Remove="Assets\Square44x44Logo.scale-100.png" />
 		<None Remove="Controls\AppItem.xaml" />
 		<None Remove="Styles\Controls.xaml" />
 		<None Remove="Styles\Theme.Dark.xaml" />
