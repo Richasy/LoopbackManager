@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 
 namespace LoopbackManager.ViewModels
 {
-    public class LoopbackViewModel:INotifyPropertyChanged
+    public class LoopbackViewModel : INotifyPropertyChanged
     {
         private LoopbackController _loopbackController;
         public ObservableCollection<AppContainer> DisplayAppCollection;
@@ -79,7 +79,7 @@ namespace LoopbackManager.ViewModels
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged([CallerMemberName]string propertyName = "")
+        private void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

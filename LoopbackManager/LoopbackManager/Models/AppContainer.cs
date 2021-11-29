@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace LoopbackManager.Models
 {
-    public class AppContainer:INotifyPropertyChanged
+    public class AppContainer : INotifyPropertyChanged
     {
         private bool _isLoopback;
         public string AppContainerName { get; set; }
@@ -28,7 +28,7 @@ namespace LoopbackManager.Models
             this.Sid = sid;
         }
 
-        private void OnPropertyChanged([CallerMemberName]string propertyName = "")
+        private void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
