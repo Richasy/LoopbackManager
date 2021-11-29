@@ -166,6 +166,38 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
+                        <Grid Height="{TemplateBinding Height}" VerticalAlignment="Top">
+                            <Ellipse
+                                x:Name="NormalCircle"
+                                Width="{TemplateBinding Width}"
+                                Height="{TemplateBinding Height}"
+                                Fill="{ThemeResource CheckBoxCheckBackgroundFillUnchecked}"
+                                Stroke="{ThemeResource CheckBoxCheckBackgroundStrokeUnchecked}"
+                                StrokeThickness="{ThemeResource CheckBoxBorderThemeThickness}"
+                                UseLayoutRounding="False" />
+                            <FontIcon
+                                x:Name="CheckGlyph"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                FontSize="{TemplateBinding FontSize}"
+                                Foreground="{ThemeResource CheckBoxCheckGlyphForegroundUnchecked}"
+                                Glyph="&#xE001;"
+                                Opacity="0" />
+
+                        </Grid>
+                        <ContentPresenter
+                            x:Name="ContentPresenter"
+                            Grid.Column="1"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            AutomationProperties.AccessibilityView="Raw"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            ContentTransitions="{TemplateBinding ContentTransitions}"
+                            TextWrapping="Wrap" />
+
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CombinedStates">
                                 <VisualState x:Name="UncheckedNormal">
@@ -515,38 +547,6 @@
                             </VisualStateGroup>
 
                         </VisualStateManager.VisualStateGroups>
-
-                        <Grid Height="{TemplateBinding Height}" VerticalAlignment="Top">
-                            <Ellipse
-                                x:Name="NormalCircle"
-                                Width="{TemplateBinding Width}"
-                                Height="{TemplateBinding Height}"
-                                Fill="{ThemeResource CheckBoxCheckBackgroundFillUnchecked}"
-                                Stroke="{ThemeResource CheckBoxCheckBackgroundStrokeUnchecked}"
-                                StrokeThickness="{ThemeResource CheckBoxBorderThemeThickness}"
-                                UseLayoutRounding="False" />
-                            <FontIcon
-                                x:Name="CheckGlyph"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                FontFamily="{ThemeResource SymbolThemeFontFamily}"
-                                FontSize="{TemplateBinding FontSize}"
-                                Foreground="{ThemeResource CheckBoxCheckGlyphForegroundUnchecked}"
-                                Glyph="&#xE001;"
-                                Opacity="0" />
-
-                        </Grid>
-                        <ContentPresenter
-                            x:Name="ContentPresenter"
-                            Grid.Column="1"
-                            Margin="{TemplateBinding Padding}"
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            AutomationProperties.AccessibilityView="Raw"
-                            Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            ContentTransitions="{TemplateBinding ContentTransitions}"
-                            TextWrapping="Wrap" />
                     </Grid>
 
                 </ControlTemplate>
@@ -690,6 +690,16 @@
                                                 BorderBrush="{ThemeResource TextControlButtonBorderBrush}"
                                                 BorderThickness="{TemplateBinding BorderThickness}"
                                                 CornerRadius="{TemplateBinding CornerRadius}">
+                                                <TextBlock
+                                                    x:Name="GlyphElement"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    AutomationProperties.AccessibilityView="Raw"
+                                                    FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                                    FontSize="12"
+                                                    FontStyle="Normal"
+                                                    Foreground="{ThemeResource TextControlButtonForeground}"
+                                                    Text="&#xE10A;" />
 
                                                 <VisualStateManager.VisualStateGroups>
                                                     <VisualStateGroup x:Name="CommonStates">
@@ -728,16 +738,6 @@
                                                         </VisualState>
                                                     </VisualStateGroup>
                                                 </VisualStateManager.VisualStateGroups>
-                                                <TextBlock
-                                                    x:Name="GlyphElement"
-                                                    HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"
-                                                    AutomationProperties.AccessibilityView="Raw"
-                                                    FontFamily="{ThemeResource SymbolThemeFontFamily}"
-                                                    FontSize="12"
-                                                    FontStyle="Normal"
-                                                    Foreground="{ThemeResource TextControlButtonForeground}"
-                                                    Text="&#xE10A;" />
                                             </Grid>
                                         </ControlTemplate>
                                     </Setter.Value>
@@ -755,6 +755,85 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
+
+                        <ContentPresenter
+                            x:Name="HeaderContentPresenter"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="{ThemeResource TextBoxTopHeaderMargin}"
+                            VerticalAlignment="Top"
+                            x:DeferLoadStrategy="Lazy"
+                            Content="{TemplateBinding Header}"
+                            ContentTemplate="{TemplateBinding HeaderTemplate}"
+                            FontSize="12"
+                            FontWeight="Normal"
+                            Foreground="{ThemeResource TipBrush}"
+                            TextWrapping="Wrap"
+                            Visibility="Collapsed" />
+                        <Border
+                            x:Name="BorderElement"
+                            Grid.Row="1"
+                            Grid.RowSpan="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            MinWidth="{ThemeResource TextControlThemeMinWidth}"
+                            MinHeight="{ThemeResource TextControlThemeMinHeight}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Control.IsTemplateFocusTarget="True"
+                            CornerRadius="{TemplateBinding CornerRadius}" />
+                        <ScrollViewer
+                            x:Name="ContentElement"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Margin="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}"
+                            AutomationProperties.AccessibilityView="Raw"
+                            HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                            HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}"
+                            IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                            IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}"
+                            IsTabStop="False"
+                            IsVerticalRailEnabled="{TemplateBinding ScrollViewer.IsVerticalRailEnabled}"
+                            VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                            VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}"
+                            ZoomMode="Disabled" />
+                        <TextBlock
+                            x:Name="PlaceholderTextContentPresenter"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}"
+                            Foreground="{Binding PlaceholderForeground, RelativeSource={RelativeSource TemplatedParent}, TargetNullValue={ThemeResource TextControlPlaceholderForeground}}"
+                            IsHitTestVisible="False"
+                            Text="{TemplateBinding PlaceholderText}"
+                            TextAlignment="{TemplateBinding TextAlignment}"
+                            TextWrapping="{TemplateBinding TextWrapping}" />
+                        <Button
+                            x:Name="DeleteButton"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            MinWidth="34"
+                            Margin="{ThemeResource HelperButtonThemePadding}"
+                            VerticalAlignment="Stretch"
+                            AutomationProperties.AccessibilityView="Raw"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            FontSize="{TemplateBinding FontSize}"
+                            IsTabStop="False"
+                            Style="{StaticResource DeleteButtonStyle}"
+                            Visibility="Collapsed" />
+                        <ContentPresenter
+                            x:Name="DescriptionPresenter"
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            x:Load="False"
+                            AutomationProperties.AccessibilityView="Raw"
+                            Content="{TemplateBinding Description}"
+                            Foreground="{ThemeResource SystemControlDescriptionTextForegroundBrush}" />
 
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
@@ -838,85 +917,6 @@
                             </VisualStateGroup>
 
                         </VisualStateManager.VisualStateGroups>
-
-                        <ContentPresenter
-                            x:Name="HeaderContentPresenter"
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="2"
-                            Margin="{ThemeResource TextBoxTopHeaderMargin}"
-                            VerticalAlignment="Top"
-                            x:DeferLoadStrategy="Lazy"
-                            Content="{TemplateBinding Header}"
-                            ContentTemplate="{TemplateBinding HeaderTemplate}"
-                            FontSize="12"
-                            FontWeight="Normal"
-                            Foreground="{ThemeResource TipBrush}"
-                            TextWrapping="Wrap"
-                            Visibility="Collapsed" />
-                        <Border
-                            x:Name="BorderElement"
-                            Grid.Row="1"
-                            Grid.RowSpan="1"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="2"
-                            MinWidth="{ThemeResource TextControlThemeMinWidth}"
-                            MinHeight="{ThemeResource TextControlThemeMinHeight}"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            Control.IsTemplateFocusTarget="True"
-                            CornerRadius="{TemplateBinding CornerRadius}" />
-                        <ScrollViewer
-                            x:Name="ContentElement"
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            Margin="{TemplateBinding BorderThickness}"
-                            Padding="{TemplateBinding Padding}"
-                            AutomationProperties.AccessibilityView="Raw"
-                            HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                            HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}"
-                            IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
-                            IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}"
-                            IsTabStop="False"
-                            IsVerticalRailEnabled="{TemplateBinding ScrollViewer.IsVerticalRailEnabled}"
-                            VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
-                            VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}"
-                            ZoomMode="Disabled" />
-                        <TextBlock
-                            x:Name="PlaceholderTextContentPresenter"
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="2"
-                            Margin="{TemplateBinding BorderThickness}"
-                            Padding="{TemplateBinding Padding}"
-                            Foreground="{Binding PlaceholderForeground, RelativeSource={RelativeSource TemplatedParent}, TargetNullValue={ThemeResource TextControlPlaceholderForeground}}"
-                            IsHitTestVisible="False"
-                            Text="{TemplateBinding PlaceholderText}"
-                            TextAlignment="{TemplateBinding TextAlignment}"
-                            TextWrapping="{TemplateBinding TextWrapping}" />
-                        <Button
-                            x:Name="DeleteButton"
-                            Style="{StaticResource DeleteButtonStyle}"
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            MinWidth="34"
-                            Margin="{ThemeResource HelperButtonThemePadding}"
-                            VerticalAlignment="Stretch"
-                            AutomationProperties.AccessibilityView="Raw"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            FontSize="{TemplateBinding FontSize}"
-                            IsTabStop="False"
-                            Visibility="Collapsed" />
-                        <ContentPresenter
-                            x:Name="DescriptionPresenter"
-                            Grid.Row="2"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="2"
-                            x:Load="False"
-                            AutomationProperties.AccessibilityView="Raw"
-                            Content="{TemplateBinding Description}"
-                            Foreground="{ThemeResource SystemControlDescriptionTextForegroundBrush}" />
                     </Grid>
 
                 </ControlTemplate>

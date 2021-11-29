@@ -11,7 +11,7 @@
 
     <SolidColorBrush x:Key="PageBackground" Color="#EDF3FE" />
     <SolidColorBrush x:Key="CardBackground" Color="White" />
-    
+
     <SolidColorBrush x:Key="GreenBrush" Color="#27AE60" />
     <SolidColorBrush x:Key="LightGreenBrush" Color="#6FCF97" />
     <SolidColorBrush x:Key="DarkGreenBrush" Color="#219653" />

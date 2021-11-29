@@ -40,11 +40,8 @@
 		<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
 		<AssetTargetFallback>net6.0-windows$(TargetPlatformVersion);$(AssetTargetFallback)</AssetTargetFallback>
 		<DefaultLanguage>zh-CN</DefaultLanguage>
-		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
 		<EntryPointProjectUniqueName>..\LoopbackManager\LoopbackManager.csproj</EntryPointProjectUniqueName>
-		<PackageCertificateThumbprint>E844BFDE006191723B7D9E842589AA2AE08EEEF9</PackageCertificateThumbprint>
 		<GenerateAppInstallerFile>False</GenerateAppInstallerFile>
-		<AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
 		<AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
 		<AppxPackageDir>E:\Package\LoopbackManager\</AppxPackageDir>
 		<GenerateTestArtifacts>True</GenerateTestArtifacts>

@@ -32,7 +32,7 @@ namespace LoopbackManager
                 AppWindowTitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
                 AppWindowTitleBar.ButtonBackgroundColor = Colors.Transparent;
                 TitleIcon.Margin = new Thickness(AppWindowTitleBar.LeftInset + 12, 0, 8, 0);
-                TitleText.Margin = new Thickness(0, 0,AppWindowTitleBar.RightInset,0);
+                TitleText.Margin = new Thickness(0, 0, AppWindowTitleBar.RightInset, 0);
                 TitleBarArea.SizeChanged += TitleBarArea_SizeChanged;
                 TitleBarArea.Visibility = Visibility.Visible;
             }
