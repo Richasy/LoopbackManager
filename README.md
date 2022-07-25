@@ -1,5 +1,7 @@
 # LoopbackManager
 
+**该项目废弃，迁移至 [LoopbackManager.Desktop](https://github.com/Richasy/LoopbackManager.Desktop)**
+
 Local network loopback manager written by [Project Reunion](https://github.com/microsoft/ProjectReunion).
 
 |||
